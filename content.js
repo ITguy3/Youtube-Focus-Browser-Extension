@@ -38,8 +38,8 @@ async function run() {
             removedComments = true;
         }
 
-        var bannedChannels = getBannedChannels();
-        // from what I know, chrome.get has its own scope
+        var bannedChannels;
+        // from what I know, chrome.get is contained in its own scope
         chrome.storage.local.get(['list'], (val) => {
             bannedChannels = val.list;
 
