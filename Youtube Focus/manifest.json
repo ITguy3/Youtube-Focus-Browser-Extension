@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "name": "Youtube Focus",
+    "description": "Blocks certain Youtube Channels. Will also remove comments and recommendations.",
+    "content_scripts": [{
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["content.js"]
+    }],
+    "icons": {
+        "16": "icons/Youtube Focus16.png",
+        "32": "icons/Youtube Focus32.png",
+        "48": "icons/Youtube Focus48.png",
+        "128": "icons/Youtube Focus128.png"
+    },
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "storage"
+    ]
+}
