@@ -39,22 +39,25 @@ async function run() {
             console.warn(e)
         }
 
-    // watch page section
+        // watch page section
     } else if (path == '/watch') {
         console.log("watch window")
         try {
             if (!removedComments) {
                 await waitForElement("#comments");
                 await waitForElement("#related");
+                await waitForElement("#panels"); // TODO: comment button
             }
             await waitForElement("#snippet");
 
             const path1 = document.getElementById("comments");
             const path2 = document.getElementById("related");
+            const path3 = document.getElementById("panels"); // TODO: replace w/ comment button id/class
 
-            if (path1 && path2) {
+            if (path1 && path2 && path3) {
                 path1.parentNode.removeChild(path1);
                 path2.parentNode.removeChild(path2);
+                path3.parentNode.removeChild(path3);
                 removedComments = true;
             }
 
@@ -81,7 +84,7 @@ async function run() {
             console.warn(e);
         }
     }
-    
+
 }
 
 var removedComments = false;
